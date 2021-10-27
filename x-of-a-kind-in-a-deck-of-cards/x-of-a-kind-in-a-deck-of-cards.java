@@ -13,17 +13,17 @@ class Solution {
 //         if(x<2){
 //             return false;
 //         }
-        int min =Integer.MAX_VALUE;
-        for(int i : map.keySet()){
-            int temp = map.get(i);
+//         int min =Integer.MAX_VALUE;
+//         for(int i : map.keySet()){
+//             int temp = map.get(i);
             
-            if(temp<2){
-                return false;
-            }
+//             if(temp<2){
+//                 return false;
+//             }
             
-            min = Math.min(min,temp);
+//             min = Math.min(min,temp);
            
-        }
+//         }
         // System.out.println(min);
         int gcd = map.get(arr[0]);
         for(int i : map.keySet()){
