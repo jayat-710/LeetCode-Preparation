@@ -9,6 +9,7 @@ class Solution {
                 dp[i][j][z]=-1;
             }
         }
+        k= Math.min(k,prices.length/2);
         return solve(0,prices,bool, k);
     }
     
