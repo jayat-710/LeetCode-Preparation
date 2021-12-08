@@ -1,34 +1,26 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
+     ArrayList <List<Integer>> ans = new ArrayList<>();
+        ArrayList<Integer> list= new ArrayList<>();
         
-        List<List<Integer>> list = new ArrayList<>();
+        rec(nums,0,list,ans);
         
-        int n = nums.length;
-        int max = (int)Math.pow(2,n);
         
-        for(int i=0;i<max;i++){
-            int temp=i;
-            int idx=nums.length;
-            
-            List<Integer> ans = new ArrayList<>();
-            
-            while(temp>0){
-                idx--;
-                
-                // if(idx<0)
-                //     break;
-                int x=temp & 1;
-                if(x==1){
-                    ans.add(nums[idx]);
-                }
-                
-                temp=temp>>>1;
-                
-            }
-            list.add(ans);
+        
+        return ans;
+    }
+    
+    static void rec(int[] nums,int i,ArrayList<Integer> list,ArrayList <List<Integer>> ans){
+        
+        if(i==nums.length){
+            ans.add((list));
+            return;
         }
         
-        return list;
+        rec(nums,i+1,new ArrayList(list),ans);
+        list.add(nums[i]);
+        rec(nums,i+1,new ArrayList(list),ans);
+        
         
     }
 }
