@@ -13,15 +13,15 @@ class Solution {
     static void rec(int[] nums,int i,ArrayList<Integer> list,HashSet <List<Integer>> ans){
         
         if(i==nums.length){
-            ans.add(new ArrayList(list));
+            ans.add((list));
             return;
         }
         
-        rec(nums,i+1,list,ans);
+        rec(nums,i+1,new ArrayList(list),ans);
         list.add(nums[i]);
-        rec(nums,i+1,list,ans);
+        rec(nums,i+1,new ArrayList(list),ans);
         
-        list.remove(list.size()-1);
+        // list.remove(list.size()-1);
     }
 }
 
