@@ -17,11 +17,11 @@ class Solution {
     public int sumRootToLeaf(TreeNode root) {
         if(root==null)return 0; int ans=0;
         ArrayList<String> list = new ArrayList<>();
-        helper(root,"",list);
+        helper(root,""+root.val,list);
         
         for(int i=0;i<list.size();i++){
            String temp=(list.get(i));
-            System.out.println(temp);
+            
             ans+=sum(temp);
             
         }
@@ -29,13 +29,14 @@ class Solution {
     }
     
     static void helper(TreeNode root,String str,ArrayList<String> list){
-        if(root==null)return;
-        if(root.left==null && root.right==null)list.add(str+root.val);
+        if(root.left==null && root.right==null)list.add(str);
         
-       
-            helper(root.left,str+root.val,list);
-            helper(root.right,str+root.val,list);
-        
+        if(root.left!=null){
+            helper(root.left,str+root.left.val,list);
+        }
+        if(root.right!=null){
+            helper(root.right,str+root.right.val,list);
+        }
     }
     
     static int sum(String binary){
