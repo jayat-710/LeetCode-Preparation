@@ -8,18 +8,14 @@ class MedianFinder {
     }
     
     public void addNum(int num) {
-        if(max.size()==0 || max.peek()>=num){
-            max.add(num);
-        }
-        else 
+        if(max.size()==0 || max.peek()>=num)max.add(num);
+        
+        else{
             min.add(num);
-    
-        if(max.size()>min.size()+1){
-            min.add(max.poll());
         }
-        else if(max.size()<min.size()){
-            max.add(min.poll());
-        }
+        
+     if(max.size()<min.size())max.add(min.poll());   
+     else if(max.size()>min.size()+1)min.add(max.poll());
         
     }
     
